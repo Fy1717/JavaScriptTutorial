@@ -1,0 +1,683 @@
+
+
+1-  Kodları script taglari içine yazıyoruz.
+
+2-  Head yada body içinde veya başka bir dosyanın içinde olacak.
+
+3-  Dinamik olması adına başka bir dosya içinde olmasını tercih ediyoruz.
+
+4-  Dosyanın adı script.js vererek html dosyamız içinde eklenti olarak çekmeliyiz.
+
+* İlk olarak 
+  
+	<script>
+		document.write("Hello World") ;
+	</script>
+
+yazarak projemizi tamamlayabiliriz.
+
+5-  Kodumuzun başına // ekleyerek o satırı yorum satırı haline getirebiliriz.
+
+6-  Değişken tanımlaması yaparken veriable'ın kısaltılmışı olan var kullanılır.
+
+7-  Değiken örnek olarak 
+
+	var  ?murat ;
+
+olarak tanımlanmamalı . Çünkü değişken olan kelimenin içinde _ dışında noktalama işareti kullanılmaz.
+
+8-  Ayrıca taşıdığı değer tanımlanmassa undefined değeri alır.
+
+9-  Değişken tanımlarken sayıları kullanabiliriz
+
+   	var  murat131 = 131;
+
+doğru bir tanımlamadır. 
+
+10-  Değişkenlerin başına var yazdığımız sürece tipi önemli olmayacaktır 
+
+	var  i=2;   // int tipinde ,
+	var pi=3.14;   // float tipinde ,
+	var yazi="JavaScript"  //string tipinde ,
+	var x=true  // diyerek de boolean değişkenleri tutabiliriz.
+	
+	document.write(degiskenAdi); // değişkenimizi böylece yazdırabiliriz.
+
+11-  Değişkenin değerini dinamik olarak değiştirebiliriz
+
+	var i=null;
+	i=385;
+
+diyerek i değişkenimizin ilk değerini değiştirebiliriz.
+
+12-  Matematik işlemlerini de yapmak mümkün 
+
+	var x=5;
+	var y=6;
+	var z= x+y; 
+
+diyip yeni bir değişkenin değerini de belirlemiş olabiliriz.
+
+13-  Aynı değişeni kullanarak da matematiksel işlem yapabiliriz.
+
+	var x=5;
+	var y=x+3;
+	var z= x+y;
+
+	document.write(x+y+z); 
+
+14-  String ile int bir değişkeni birleştirelim 
+
+	var isim="Murat";
+	var yaş=24;
+	
+	document.write(isim + "'ın yaşı  "+ yaş);
+
+15-  Matematiksel operatör kullanımı gayet basit
+
+	+ - * / % ++ -- gibi işaretler  kullanarak matematiksel işlemleri gerçekleştiriyoruz
+
+	var x = 5;
+	var y = 6;
+	var z = 7;
+
+	document.write(x-y+z);   // diyerek işlemi basitçe gerçekleştirebiliriz.
+	document.write(x*y+z);   // burada matematiksel kuralların aynısı uygulanır. 
+	document.write((x+y)*z); //aynı şekilde parantez de kullanabiliriz.
+	
+16-  Tam bölünemeyen sayılarda küsürat elde ederek float bir değer elde ederiz.
+
+17-  % işareti ile bir sayının diğer sayıya bölümünden  kalan değeri buluruz.
+
+	document.write(15%10);  // 5 çıktısını verecektir.
+
+18-  ++ ve -- işlemleri  aslında 1 artırma ve 1 azaltmayla eşdeğerdir.
+
+	var x = 10;
+ 	var x++;
+		
+	document.write(x);  // x+1 ile eşdeğer sonuç gelir.
+
+19-  *  /  % işlemleri aynı önceliğe sahiptir ve aynı alanda kullanıldıklarında soldan sağa gidilerek sırayla işlemler gerçekleştirilir.
+
+20-  = , += , -= , *= , /= , %=  gibi işaret kümeleri atama operatörleridir .
+
+	var x=5;
+	x += 5; // dediğimizde aslında x= x+5 ; işlemini gerçekleştiririz.
+
+diğer operatörlerin de mantığı aynıdır.
+
+21-  Html ile javascripti etkileşime geçirmek için GetElementById kullanılır.
+Bir id yalnızca tek alanda kullanılmalıdır.
+
+	<p id="paragraf" > </p>  // p etiketimize paragraf idsi verdik.
+
+Şimdi script taglerimiz içine javascript kodlarımızı yazıp bu etikete idsi üzerinden erişim sağlayalım. Daha sonra da bu p etiketi içine yazı ekleyelim.
+
+	<script>
+		document.getElementById("paragraf").innerHTML = "JavaScript Öğreniyorum";
+	</script>
+
+// boş olan p etiketini doldurmuş olduk.
+
+22-  Eğer kullanıcıya uyarı yazısı yazdırmak istiyorsak 
+
+	<script>
+		window.alert("UYARI YAZISI");  // diyebiliriz.
+	</script>
+
+23-  Document.write uyarı yazısı olarak kullanılabilir ancak butonun onclick metodu içinde kullanılmamalıdır . Sayfadaki diğer veriler silinecektir.
+
+24-  console.log("UYARI");   kullanarak da konsolumuza uyarı yazısı gönderebiliriz.
+
+25-  JavaScript te fonksiyon kullanımı da oldukça basittir . Kendi içlerinde programlardır.
+
+	<script>
+
+		function bas(){
+			window.alert("Tıklandı!");		
+	
+		}
+		
+		//biz bu fonksiyonu kullanmak için çağırmalıyız.
+
+		bas();  // böylece çağırıp çalıştırmış olduk.
+
+	</script>
+
+
+Fonksiyonu html içinde çağırmak için ise ;
+
+	<input type="button" value="Tıkla" onclick="bas()"></input>
+
+26-  Fonksiyona parametre göndererek de işlemler yapabiliriz.
+
+	<script>
+
+		function bas(isim,soyisim){
+			window.alert("Benim Adım " + isim +" "+ soyisim);		
+	
+		}
+		
+		//Çağırırken parametreyi göndermeliyiz.
+
+		bas("Furkan","Yıldız");  // böylece çağırıp çalıştırmış olduk.
+
+	</script>
+
+Fonksiyonu html içinde çağırmak için ise ;
+
+	<input type="button" value="Tıkla" onclick=bas("Murat","Turoğlu")></input>
+
+27-  Eğer bir fonksiyonunun bize birşey döndürmesini bekliyorsak return kullanmalıyız . Yani fonksiyon çalışacak daha sonra da bize kullanabileceğimiz bir sonuç döndürecek. Buna uygun bir fonksiyon yazacak olursak ;
+
+	function toplama(a,b){
+		return a+b ;
+	}
+
+	var c = toplama (3,4);
+	document.write(c);
+
+fonksiyonumuz çalıştığında gönderdiğimiz parametreleri toplayıp bize geri verecektir. 
+
+28-   Eğer değişkenlerimizi bir fonkiyonun içinde yazarsak bu değişken lokal özellik taşır . Yani işi bittikten sonra yok olur . Ancak script tagleri arasında tutulan değişkenler global özelliktedir . 
+
+	<script>
+		
+		var i = 5 ;  // global değişken 
+
+		function deneme (){
+		
+			var j = 2 ; // lokal değişken		
+
+		}
+	
+ 	</script> 
+
+29-   Değişken olarak bir bilgisayar marka ismi tutacağımızı düşünelim. Bu bilgisayarı tanımlayan bir özellik olabilir ve marka adından başka özellikleri de olabilir . İşte burada objelere giriş yapabiliriz . 
+
+	var pc1 = {marka:"Lenovo" , ram:"6gb" , cpu: 2.60}
+
+buna bir örnektir. Bu bilgisayarın fonksiyonlarını da özellikleri arasına ekleyebiliriz. 
+
+	var pc1 = {marka:"Lenovo" , 
+			     ram:"6gb" ,
+			     cpu: 2.60 ,			 
+			     yazdir: function(){
+						window.alert(this.marka);
+				           }   
+	};
+
+
+bu pc'nin özelliklerini dışarıda  kullanabiliriz.
+
+	document.write(pc1["marka"]);
+	pc1.yazdir();
+ 
+
+30-  JavaScript içinde hazır olarak verilmiş modüller vardır .
+
+	document.write(Math.min(0,100,-23,5));
+
+dediğimizde bize parantez içindeki en küçük sayıyı verecektir.
+
+	document.write((Math.random())*10);
+
+bize 0-10 arası random bir sayı gösterecektir.
+
+31-  Listeler, içerisinde birden fazla değer tutmaya yarayan yapılardır .
+
+	var insanlar = ["Furkan","Murat","Sezgi"];  // Şeklinde tanımlama yapabiliriz.
+
+	var x = [2,5,13,"Furkan",true,false]; // Farklı tipler de tutulabilir.
+
+32-  Liste elemanlarını göstermek için 
+
+	var x = [2,5,13,"Furkan",true,false];
+
+	document.write(x);   // Tüm elemanları listeler.
+	document.write(x[0]);  // Listedeki ilk elemanı gösterir.
+
+33-  Listenin boyutunu öğrenmek için 
+	
+	document.write(x.length);
+
+34-  Elimizde birleştiklerinde günün tarihini oluşturan listeye göz atalım
+
+	var tarih = ["17" ,"01" , "1997"];
+
+Şimdi tarihi aralarına / atarak düzgün şekilde yazalım.
+
+	var yazi = tarih.join("/");
+	document.write(yazi);
+
+35-  Listeden son elemanı çıkarmak için 
+
+	var insanlar = ["Furkan","Murat","Sezgi"];  
+	insanlar.pop();   // diyebiliriz.
+
+36-  Listeye eleman eklemek için 
+
+	var insanlar = ["Furkan","Murat"];  
+	insanlar.push("1997");
+
+37-  Elemanı başka bir değişkenle değiştirmek için 
+
+	var insanlar = ["Furkan","Murat"];  
+	insanlar[1] = "Alper";
+
+artık Murat yerine Alper in yerleştirildiğini görebiliriz.
+
+38-  Liste içinde sıralam yapmak için
+
+	var insanlar = ["Furkan","Murat","Sezgi","Alper"];  
+	insanlar.sort();
+
+alfabeye göre isimlerin sıralanıp yeni listenin nasıl değiştiğini görebiliriz.
+
+	//  "Alper", "Furkan","Murat","Sezgi"
+
+39-  Tersten sıralamak için ise 
+
+	var insanlar = ["Furkan","Murat","Sezgi","Alper"];  
+	insanlar.reverse();
+
+40- Mantıksal operatör olarak 
+
+ 	    ==   Eşit mi?
+	    !=    Eşit Değil mi?
+	    >     Büyük mü?
+	    <     Küçük mü?
+	    >=  Büyük veya Eşit mi?
+	    <=  Küçük veya Eşit mi?
+
+operatörleri kullanılır. 	Bu operatörler karşılaştırma amaçlı olarak genelde fonksiyonların içinde kullanılır. 
+
+41-  Birden fazla operatör işlemini birleştirmek için
+
+	&&  (ve)  veya  ||  (veya)  işareti kullanılır . 
+
+         4>=5  &&  "Furkan" != "Murat"
+
+	15>10  ||  8 <10
+
+gibi karşılaştırmalar yapabiliriz.
+
+42-  JavaScriptte operatör işlemleri genelde if  ve else  karşılaştırma şart blokları içerisinde kullanılır.
+
+	var saat = 4 ;
+	if (	 saat == 4  ||  saat < 7 ) 
+	{
+		window.alert("Gece Vakti");
+	}
+
+	else
+	{
+		window.alert("Gündüz Vakti");		
+	}
+
+İf blokları içerisindeki şart sağlanıyorsa Gece Vakti yazısı görüntülenir sağlanmıyorsa Gündüz Vakti yazılır.
+
+43-  Daha karmaşık bir yapı oluşturalım 
+
+	var saat = 7 ;
+	var haftasonu = true;
+
+	if (	 saat <7 ) 
+	{
+		window.alert("UYU");
+	}
+
+	else
+	{
+		if (	 haftasonu  ) 
+		{
+			window.alert("Bugün haftasonu . Rahatça uyuyabilirsin ");
+		}
+		
+		else
+		{
+			window.alert("Kalkma  Vakti");		
+		}
+
+	}
+
+44-   Eventlere değinecek olursak daha önce aslında onclick eventini kullanmıştık . Bunun gibi onlarcası javascript içerisinde mevcut .
+
+	<script>
+		function degistir()
+		{
+			document.getElementById("para").innerHTML = "JavaScript" ;
+		} 	
+	</script>
+
+	<button onclick = "degistir () " > Tıkla  </button>
+	<p id="para"> </p>
+
+Butona tıklandığında p elementinin içine JavaScript yazdığını görebiliriz.
+
+
+45-  This dediğimiz olaya gelecek olursak 
+
+	<button onclick = "this.innerHTML = 'JavaScript'"> Tıkla </button>
+
+Bir önceki fonksiyonumuzdan tek farkı burada button elementinin yazısını kullanıyor olmasıdır . Yani this yapısı bulunulan elementi temsil etmektedir.
+
+46-  Benzer şekilde başka bir eventi işleyelim 
+
+	<script>
+		function yukle(){
+			window.alert("HOŞGELDİNİZ..");
+		}
+	</script>
+
+	<body onload = "yukle()">
+	</body>
+
+Sayfa yüklendiğinde nasıl bir karşılama yapılacağını burada belirleyebiliriz.
+
+47-  Form alanlarıyla çalışalım . JavaScript içinden de form alanına erişmek için document.forms kullanacağız , tabi formun yanına name vermek şart . Bu formun içindeki username alanına erişmek için ise yanında bir parantez daha kullanmak yeterli olacak . Alana girilen değeri almak için ise value yi kullanabiliriz . Bu erişim alanlarında parantezler yerine direk formun ismini verip nokta işareti de kullanabiliriz .  Bir event oluşturuyorsak ve bu eventten  geri dönüş sağlamak istiyorsak 
+	onsubmit =" return false" 
+örnekteki gibi dönüşü false yapmalıyız . Böylece sayfa olağan durumunda kalsın . 
+
+	
+	<form name="form1" action="gonder.php" onsubmit="return tikla()" method = "post">
+
+    Kullanıcı Adı :  <input type = "text" name = "username" /> </br>
+    <input  type = "submit" value= "Gönder">
+
+</form>
+
+<script>
+    function tikla()
+    {
+
+        var deger = document.form1.username.value;
+
+        if (deger =="")
+        {
+            window.alert("Bu alan boş bırakılamaz..");
+            return false;
+        }
+    }
+
+</script>
+48-  Form alanlarında kullanıcıdan farklı tiplerdegirdiler bekleyebiliriz. Bazen yaş telefon numarası benzeri girdiler gibi . Şimdi kullanıcıdan aldığımız verinin sayı olup olmadığını kontrol eden kodumuzu yazalım .
+
+	<script>
+
+		function dogrula(){
+					
+			var deger = document.getElementById("girdi").value;
+
+			if (isNaN(deger) == true)
+			{
+				window.alert("Bu alana SAYI girilmeli..");
+				return false;
+			}
+
+			else{
+				window.alert("İnput Geçerli");			
+			}
+		}
+
+	</script>
+	
+
+	<input id="girdi" /> </br>
+	<button  onclick ="dogrula()"> Kontrol Et </button>
+
+49-  İnput taginin içerisine required kelimesini eklersek bu alan boş bırakıldığında otomatik bir hata döndürür .
+
+50-  JavaScript form alanında girdinin türünü girdi eğer sayı ise bu sayının aralığını zorunlu alan olup olmadığını sadece input tagi içinde belirtebiliriz. Kontrol fonksiyonu içinde checkValidity eventi ile geçerlilik durumunu kontrol edebilir  validationMessage ile de default hata yerine kendi istediğimiz hatayı verdirebiliriz
+
+	<script>
+
+		function kontrol(){
+					
+			var x = document.getElementById("sayi");
+
+			if (x.checkValidity() == false)
+			{
+				window.alert(x.validationMessage);
+				return false;
+			}
+
+			else{
+				window.alert("İnput Geçerli");			
+			}
+		}
+
+	</script>
+	
+
+	<input id="sayi"  type="number" min="50" max="100"  required/> </br>
+	<button  onclick ="kontrol()"> Kontrol Et </button>
+
+
+51-  JavaScript  DOM ile sayfa üzerinde yani sayfayı oluşturan hiyerarşik yapının her bir elemanına erişebilir özelliklerinde değişiklik yapabilir hatta yeni elemanlar ekleyebiliriz. Her element aslında bir objedir . Örnek olarak bir yapının css özelliğini değiştirelim.
+
+	<script>
+
+		function degistir(){
+			document.getElementById("para").style.color =" white";
+			document.getElementById("para").style.backgroundColor =" blue";
+			window.alert(document.URL);
+			window.alert(document.title);
+
+		}
+
+	</script>
+
+	<p id="para" > Yazılım </p>
+	<button onclick ="degistir()"> Değiştir </button>
+	
+52-  Aynı zamanda bir elementin visibility özelliğiyle oynayarak onu görünür görünmez şekilde değiştirebiliriz.
+
+	<script>
+
+		function kaybet(){
+			document.getElementById("para").style.visibility =" hidden";
+
+		}
+
+		function goster(){
+			document.getElementById("para").style.visibility =" visible";
+
+		}
+
+	</script>
+
+	<p id="para" > Yazılım </p>
+
+	<button onclick ="kaybet()"> Kaybet </button>
+	<button onclick ="goster()"> Göster </button>
+
+53-  Sayfadaki tüm p elementlerine erişmek istersek
+
+	document.getElementByTagName("p")
+
+54-  Sonra da hepsinin özelliğini değiştirelim 
+
+	document.getElementByTagName("p").style.özellik = yeni özellik
+
+55-  TagName eklemesi yaptığımızda bize p elementlerinin listesini verir.
+
+56-  Birkaç event daha..
+
+	onclick ---> tıklandığında  (herangi bir div alanı veya buton için kullanılabilir)
+	onmouseover ---> mouse ile üzerine gelindiğinde
+	onmouseout ----> mouse üzerinden çekildiğinde
+	 
+Burada bir resmin bulunduğu alanın idsini alıp mouseover ve out eventleriyle resmin src uzantısıyla oynayıp mouse divin üzerine geldiğinde farklı çekildiğinde farklı resimler gösterebiliriz.
+
+57-   Bir element için addEventListener ile birden fazla event adına kontrol sağlayabiliriz. Elimizde bir buton olduğunu düşünelim ve addEventListener ile mousea tıklanıldığında mouse üzerine gelindiğinde ve çekildiğinde hangi fonksiyonların çalışacağını belirleyelim.
+
+	
+	<button id = "buton"> Buton </button>
+	<p id="para"></p>
+
+	<script>
+
+		var buton = document.getElementById("buton");
+
+		buton.addEventListener("click", Tikla);
+		buton.addEventListener("mouseover", Uzerinde);
+ 		buton.addEventListener("mouseout", UzerindeDegil);
+	
+		function Tikla(){
+			document.getElementById("para").innerHTML =" Tıklandı";
+		}
+
+		function Uzerinde(){
+			document.getElementById("para").innerHTML =" Mouse Burada";
+		}
+
+		function UzerindeDegil(){	
+			document.getElementById("para").innerHTML =" Mouse Burada Değil";
+		}
+
+	</script>
+
+Böylece daha düzgün ve sağlıklı kontrol sağlamış oluruz.
+
+58-  Sayfa bildiğimiz gibi bir hiyerarşi yapısındadır . Yani bir div ve bu div taglerinin içerisinde 4 tane p elementi olduğunu düşünürsek bu p elementlerinin her biri divin child ı konumundadır .  Biz bu yapıya göre javascriptte dinamik olarak element ekleyip silebiliriz . 
+
+	<div id = "anakısım" >
+
+		<p id="para1">
+		</p>	
+
+		<p id="para2">
+		</p>	
+
+		<p id="para3">
+		</p>	
+	
+	</div>
+	
+Elimizdeki yapının bu şekilde olduğunu varsayalım.
+
+Bir metin oluşturacağız . Sonra ekleyeceğimiz elementin bir p elementi olduğunu belirteceğiz . Son olarak da bu elementin konumunu bildireceğiz . 
+
+	<script>
+	
+	function yenikısım()
+	{
+		var metin = "22 yaşındayım Gebze'de doğdum Üniversite öğrencisiyim ..";
+	
+		var yeniElement = document.createElement("p");
+		var icerik = document.createTextNode(metin);
+
+		yenielement.appendChild(icerik);
+
+		var anakısım = document.getElementById("anakısım");
+		anakısım.appendChild(yeniElement);	
+	}
+
+	</script>
+
+
+59-  Şimdi sondan başlayıp element silmeye çalışalım .
+
+	function sil(){
+	
+		var elementler = document.getElementsByTagName("p"); // p lerin listesi	
+		
+		if(elementler.length != 0)
+		{
+			var element = elementler[elementler.length-1];
+			var anne = element.parentNode;
+			anne.removeChild(element);
+		}
+	
+	}
+	
+Burada en alttaki elementi bulmak için p elementlerinin listesini alıp bu listenin son elemanına ulaşıyoruz.
+
+Anne nodunun altındaki child lara ulaşmak istersek 
+
+	var childs = anne.childNodes;    // diyebiliriz.
+
+Kardeşlere erişmek istersek 
+
+	var element = document.getElementById("para2");
+	var kardes = element.previousElementSibling; // para1 e geçtik
+	var kardes2 = element.nextElementSibling; // para3 e geçtik
+
+
+60-  Diyelim ki bir sayfamız var . Kullanıcı bir link ile sayfadan ayrılcak . Biz istiyoruz ki linke tıkladığında ona sayfadan ayrılmak isteyip istemediğini soralım .  ConfirmBox ile bir onay kutusu oluşturalım .
+
+	<script>
+
+		function yonlendir(){
+			var ok = confirm("Sayfadan Ayrılmak İstiyor musunuz ?");		
+
+			if (ok){
+				return true;
+			}
+			
+			else
+			{				
+				return false;
+			}
+
+		}
+
+	</script>
+	
+	<a onclick ="return Yonlendir()" href= "https://www.frknyldz.com"> Tıkla </a>
+
+61-  Bir fonksiyon yazdık diyelim . Bu fonksiyonu çalıştıracağız ama belli bir zamanda çalışmasını istiyoruz .   Yada belli aralıklarla birden fazla defa çalışmasını istiyoruz .
+SetTimeOut isimli bir fonksiyonumuz var iki tane parametre alıyor . Birincisi çalışacak olan fonksiyonun ismi , ikincisi de ne kadar zaman sonra çalışacağıdır .  SetInterval fonksiyonundaki zaman ise ne kadar zamanda bir çalışacağını belirttiğimiz fonksiyondur .  
+
+62-  Dosya indirme simülasyonu yapalım . Bu simülasyonda fonkisyonumuzu çalıştırdığımızda bize x saniye sonra indirme başlatılıyor desin . Bir de bu indirmeyi iptal etme fonksiyonumuz olsun .
+
+	<p> Dosyayı indirmek için tıklayın . </p>
+	<p id="para" > </p>
+	
+	<button onclick="baslat()"> İndirmek için tıklayın </button> 
+	<button onclick="islemleridurdur()"> İptal ekmek için tıklayın </button>
+
+	<script>
+
+		var say = 5;
+		var indirme;
+		var sure;
+		
+
+		function baslat()
+		{
+			indirme = setTimeout(dosyaindirme , 5000);
+			sureyisay();
+			sure = setInterval(sureyisay,1000);
+		}
+
+
+		function dosyaindirme()
+		{
+			window.alert("Dosya inmeye başladı..");
+			document.getElementById("para").innerHTML = " ";
+			say = 5;
+		}
+
+
+		function sureyisay()
+		{
+			document.getElementById("para").innerHtml = "Dosya " + say + " saniye içinde inecek...";
+			if (say==0)
+			{
+				clearInterval(sure);
+			}
+		}
+
+
+		function islemleridurdur()
+		{
+			clearInterval(sure);
+			clearTimeout(indirme);
+			document.getElementById("para").innerHTML = "Dosya indirmesi durduruldu..";
+			say=5;
+		}		
+
+	</script>
